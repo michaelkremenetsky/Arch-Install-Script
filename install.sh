@@ -42,7 +42,7 @@ mount /dev/sda1 /mnt/boot
 # TODO - add ucode soon
 extraPackages="neovim"
 
-pacstrap /mnt base linux linux-firmware $extraPackages
+pacstrap /mnt base linux linux-firmware networkmanager $extraPackages
 
 # Generate fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -70,6 +70,9 @@ cat <<EOT > "/mnt/etc/hosts"
 ::1		localhost
 127.0.1.1	michael
 EOT
+
+# Start Network Manager Service
+arch-chroot /mnt systemctl enable NetworkManager
 
 # set password
 arch-chroot /mnt passwd
