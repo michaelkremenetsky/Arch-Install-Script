@@ -74,8 +74,11 @@ EOT
 # Start Network Manager Service
 arch-chroot /mnt systemctl enable NetworkManager
 
-# set password
-arch-chroot /mnt passwd
+# Add User
+arch-chroot /mnt useradd -mG wheel michael
+
+# set password for user
+arch-chroot /mnt passwd michael
 
 if [ $bootloader == "systemd-boot" ]
 then
