@@ -6,4 +6,6 @@
 # git clone https://github.com/michaelkremenetsky/Personal-Arch-Script
 # # cd into the repo
 # sh install.sh
+# reboot
+# sh postinstall.sh
 ```
